@@ -10,3 +10,8 @@ int compare_by_height(const void *a, const void *b) {
 	return 0;
 }
 
+int compare_by_name(const void *a, const void *b) {
+	const Person *p1 = (const Person *)a;
+	const Person *p2 = (const Person *)b;
+	return strcmp(p1->name, p2->name);
+
