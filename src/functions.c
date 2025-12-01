@@ -1,5 +1,5 @@
 #include <string.h>
-#include "functions.h"
+#include "../include/functions.h"
 
 int compare_by_height(const void *a, const void *b) {
 	const Person *p1 = (const Person *)a;

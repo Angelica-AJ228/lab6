@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <Person.h>
+#include <../include/Person.h>
 
 void print_people(Person arr[], int n) {
 	printf("Nombre           Edad     Altura(cm)\n");

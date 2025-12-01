@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Person.h"
-#include "functions.h"
+#include "../include/Person.h"
+#include "../include/functions.h"
 
 int main() {
 
