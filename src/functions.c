@@ -69,7 +69,7 @@ int validate_height(const char *height) {
 	int decimal = 0;
 
 	for (int i = 0, i < len; i++) {
-		char c = heiht[i];
+		char c = height[i];
 
 		if (c == '.') {
 			decimal++; // aqui se aumenta decimal solo si hay un punto detras y por eso retorna cero
