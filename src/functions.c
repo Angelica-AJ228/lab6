@@ -45,45 +45,10 @@ int validate_name(const char *name) {
 
 }
 
-int validate_age(const char *age) {
-	
-	int len = strlen(age);
-
-
-	if (len == 0) return 0;
-	for (int i = 0; i < len; i++) {
-		if (!(age[i] >= '0' && age[i] <= '9')) { //mismo que en la validacion de nombre
-			return 0;
-		}
-	}
-
-	return 1;
-
+int validate_age(int age) {
+    return (age > 0 && age < 100);
 }
 
-int validate_height(const char *height) {
-
-	int len = strlen(height);
-	if (len == 0) return 0;
-
-	int decimal = 0;
-
-	for (int i = 0, i < len; i++) {
-		char c = height[i];
-
-		if (c == '.') {
-			decimal++; // aqui se aumenta decimal solo si hay un punto detras y por eso retorna cero
-			if (decimal > 1) return 0;
-
-		}
-
-		else if (!(c >= '0' && c <= '9')) { //misma comprobacion de age y name
-			return 0;
-		}
-
-	}
-
-	return 1;
-
+int validate_height(double height) {
+    return (height > 0.0 && height < 210.0);
 }
-
