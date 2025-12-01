@@ -1,21 +1,24 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
+CFLAGS = -Wall -Wextra -std=c11 -Iinclude
 
-OBJ = main.o person.o functions.o
+SRC= src
+OBJ = obj
+
+OBJ = $(OBJ)/main.o $(OBJ)/person.o $(OBJ)/functions.o
 
 all: Person
 
 Person: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o Person
 
-main.o: main.c Person.h functions.h
-	$(CC) $(CFLAGS) -c main.c
+main.o: $(SRC)/main.c include/Person.h include/functions.h
+	$(CC) $(CFLAGS) -c $(SRC)/main.c
 
-Person.o: Person.c person.h
-	$(CC) $(CFLAGS) -c Person.c
+Person.o: $(SRC)/Person.c include/person.h
+	$(CC) $(CFLAGS) -c $(SRC)/Person.c
 
-functions.o: functions.c functions.h Person.h
-	$(CC) $(CFLAGS) -c functions.c
+functions.o: $(SRC)/functions.c include/functions.h include/Person.h
+	$(CC) $(CFLAGS) -c $(SRC)/functions.c
 
 valgrind: Person
 	valgrind --leak-check=full --show-leak-kinds=all ./Person
