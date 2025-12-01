@@ -16,6 +16,28 @@ int main() {
 
 
 	int n = 5;
+	
+	for (int i = 0; i < n; i++) {
+		
+		if (!validate_name(names[i])) {
+			printf("ERROR: nombre no válido\n");
+			return 1;
+		}
+		
+		if (!validate_age(ages[i])) {
+			printf("ERROR: valor de edad no válido\n");
+			return 1;
+		}
+		
+		if (!validate_height(heights[i])) {
+			printf("ERROR: valor de altura no válido\n");
+			return 1;
+		}
+		
+		strcpy(people[i].name, names[i]);
+		people[i].age = atoi(ages[i]); //atoi convierte texto a int pero solo si el texto se alinea con los caracteres numericos
+		people[i].height = atof(heights[i]); //casi que lo mismo que atoi pero con float, en altura estamos usando decimales
+	}
 
 	printf("Arreglo original: \n");
 	print_people(people, n);
@@ -37,9 +59,4 @@ int main() {
 	return 0;
 
 }
-
-
-
-
-
 
